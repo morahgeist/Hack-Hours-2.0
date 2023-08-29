@@ -11,5 +11,6 @@ sample output
 */
 
 function threeNumberSum(array, targetSum) {
-  // Write your code here.
+  // Write your code here
+  // this is a test to see how commits are counted.
 }
