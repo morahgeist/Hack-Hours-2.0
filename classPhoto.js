@@ -18,19 +18,19 @@ true // Place all students with blue shirts in the back row.
 function classPhotos(redShirtHeights, blueShirtHeights) {
   // find max height of both arrs
   // arr with the max max height will be back row, since no one is taller
-  const redMax = Math.max(redShirtHeights);
-  const blueMax = Math.max(blueShirtHeights);
+  const redMax = Math.max(...redShirtHeights);
+  const blueMax = Math.max(...blueShirtHeights);
   // sort arrs
   redShirtHeights = redShirtHeights.sort((a, b) => a - b);
   blueShirtHeights = blueShirtHeights.sort((a, b) => a - b);
   if (Math.max(redMax, blueMax) === redMax) {
     // iterate over arr and make sure all back vals are greater than vals in front
-    for (let i = 0; i < redShirtHeights.length; i++) {
+    for (let i = 0; i <= redShirtHeights.length; i++) {
       if (redShirtHeights[i] < blueShirtHeights[i]) return false;
     }
   } else {
     for (let i = 0; i < blueShirtHeights.length; i++) {
-      if (blueShirtHeights[i] < redShirtHeights[i]) return false;
+      if (blueShirtHeights[i] <= redShirtHeights[i]) return false;
     }
   }
   return true;
@@ -38,3 +38,4 @@ function classPhotos(redShirtHeights, blueShirtHeights) {
 
 console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
 console.log(classPhotos([5, 8, 8, 3, 4], [6, 9, 2, 4, 5]));
+console.log(classPhotos([5], [5]));
