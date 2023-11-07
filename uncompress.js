@@ -10,7 +10,7 @@ const uncompress = (s) => {
   // need to break down string into letter and number pair
   // declare array to push values into
   let result = [];
-  // declare a variable numbers to check is value is a number
+  // declare a variable numbers to check if value is a number
   const numbers = '0123456789';
   // initialize 2 pointers
   let i = 0;
