@@ -23,15 +23,17 @@ function isValidSubsequence(array, sequence) {
   //   }
   //   return true;
 
-  let curr;
   // iterate over arr
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < sequence.length; j++) {
-      // need 2 pointers, current val in seq and then moving through arr
-      // if el is found, next iteration is from that index to the end
-    }
-    // check if val is in seq
+  // need 2 pointers, current val in seq and then moving through arr
+  // i will iterate over array
+  // j will iterate over sequence
+  let i = 0;
+  let j = 0;
+  while (j < sequence.length) {
+    if (!array.includes(sequence[j])) return false;
   }
+  // if el is found, next iteration is from that index to the end
+  // check if val is in seq
 }
 
 const arr = [5, 1, 22, 25, 6, -1, 8, 10];

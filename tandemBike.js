@@ -24,27 +24,41 @@ function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
   // if odd, round up
   const half = Math.ceil(redShirtSpeeds.length / 2);
   console.log(half);
-  let combined = [];
-
+  let combined;
   // if fastest = true
   if (fastest === true) {
     // take that number off the end (highest) of both arrs
     // combine and filter for top half value
-    combined = redSort.slice(half - 1);
-    combined.push(...blueSort.slice(half - 1));
-    combined = combined.sort((a, b) => a - b);
-    combined = combined.slice(1, combined.length);
+    combined = redSort.slice(half);
     console.log(combined);
-  } else {
-    // combine both arrs, sort, and take every val at odd index to push into combined
-
+    combined.push(...blueSort.slice(half));
     console.log(combined);
+    if (half !== redShirtSpeeds.length / 2) {
+      combined = redSort.slice(half - 1);
+      combined.push(...blueSort.slice(half - 1));
+      combined = combined.sort((a, b) => a - b).slice(1, combined.length);
+    }
+  }
+  // sort both arr, look at each arr at index i, push larger val into combined
+  for (let i = 0; i < redShirtSpeeds.length; i++) {
+    combined.push(Math.max(redSort[i], blueSort[i]));
   }
   return combined.reduce((acc, curr) => acc + curr, 0);
 }
 
-const redShirtSpeeds = [5, 5, 3, 9, 2];
-const blueShirtSpeeds = [3, 6, 7, 2, 1];
-const fastest = true;
+// const redShirtSpeeds = [1, 2, 1, 9, 12, 3];
+// const blueShirtSpeeds = [3, 3, 4, 6, 1, 2];
+// const fastest = true;
+// 37
 
-console.log(tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest)); // 32
+// const redShirtSpeeds = [5, 5, 3, 9, 2];
+// const blueShirtSpeeds = [3, 6, 7, 2, 1];
+// const fastest = true;
+// 32
+
+const redShirtSpeeds = [1, 1, 1, 1, 2, 2, 2, 2, 9, 11];
+const blueShirtSpeeds = [1, 1, 1, 1, 3, 3, 3, 3, 5, 7];
+const fastest = true;
+// 48
+
+console.log(tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest));
